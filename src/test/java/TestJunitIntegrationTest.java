@@ -3,10 +3,10 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestTask1 {
+public class TestJunitIntegrationTest {
     @Test
     public void testLucky() {
-        assertEquals(7, Task1.getLucky());
+        assertEquals(7, JunitIntegrationTest.getLucky());
     }
 
 }
