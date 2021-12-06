@@ -1,31 +1,34 @@
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestTask3 {
 
-    String s1 = String.valueOf(125);
-    String s2 = String.valueOf(24);
+    double d1 = 125.00d;
+    double d2 = 24.00d;
 
     @Test
     public void testAddValues() {
-        assertEquals(149, (int) Task3.addValues(s1, s2));
+        assertEquals(149, (int) Task3.addValues(d1, d2));
     }
 
     @Test
     public void testSubtractValues() {
-        assertEquals(101, (int) Task3.subtractValues(s1, s2));
+        assertEquals(101, (int) Task3.subtractValues(d1, d2));
     }
+
     @Test
     public void testMultiplyValues() {
-        assertEquals(3000, (int) Task3.multiplyValues(s1, s2));
+        assertEquals(3000, (int) Task3.multiplyValues(d1, d2));
     }
+
     @Test
     public void testDivideValues() {
-        assertEquals(5, (int) Task3.divideValues(s1, s2));
+        assertEquals(5, (int) Task3.divideValues(d1, d2));
     }
+
     @Test
     public void testRemindValues() {
-        assertEquals(5, (int) Task3.remindValues(s1, s2));
+        assertEquals(5, (int) Task3.remindValues(d1, d2));
     }
 }
