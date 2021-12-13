@@ -7,6 +7,6 @@ public class TestRectangle {
     @Test
     public void testArea() {
         Rectangle myTestRect = new Rectangle(40, 50);
-        assertEquals(2000, myTestRect.area());
+        assertEquals(2000, myTestRect.getArea());
     }
 }
