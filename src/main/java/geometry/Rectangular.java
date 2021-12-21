@@ -9,16 +9,12 @@ public abstract class Rectangular implements Shape {
         this.sideB = sideB;
     }
 
-    public Rectangular(double sideA) {
-        this.sideA = sideA;
-    }
-
     public double getSideA() {
-        return this.sideA;
+        return sideA;
     }
 
     public double getSquare() {
-        return this.sideA * this.sideB;
+        return sideA * sideB;
     }
 
 }

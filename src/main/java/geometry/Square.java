@@ -3,7 +3,8 @@ package geometry;
 public class Square extends Rectangular {
 
     public Square(double sideA) {
-        super(sideA);
+        // add default sideB = 0, because we really do not need sideB for Square
+        super(sideA, 0);
     }
 
     @Override

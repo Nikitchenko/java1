@@ -6,8 +6,4 @@ public class Oval extends Round {
         super(axisA, axisB);
     }
 
-    @Override
-    public double getSquare() {
-        return PI * this.getAxisA() * this.getAxisB();
-    }
 }
