@@ -31,11 +31,13 @@ public class TestVector {
     @Test
     public void testGenerateVectorRandom() {
 
-        // Our random Vectors have coordinates in range 0<coordinate<100
+        // Our random Vectors have coordinates in range 0<=coordinate<=100
         // let`s check some of them
         assertTrue(0.00d <= Vector.generateRandomVectors()[0].getCoordX() &&
-                Vector.generateRandomVectors()[0].getCoordY() <= 100.00d, "not expected coordY in new random vector");
+                Vector.generateRandomVectors()[0].getCoordX() <= 100.00d, "not expected coordX in new random vector");
         assertTrue(0.00d <= Vector.generateRandomVectors()[1].getCoordY() &&
+                Vector.generateRandomVectors()[1].getCoordY() <= 100.00d, "not expected coordY in new random vector");
+        assertTrue(0.00d <= Vector.generateRandomVectors()[2].getCoordZ() &&
                 Vector.generateRandomVectors()[2].getCoordZ() <= 100.00d, "not expected coordZ in new random vector");
     }
 
