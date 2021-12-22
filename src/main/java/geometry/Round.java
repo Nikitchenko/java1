@@ -13,12 +13,7 @@ public abstract class Round implements Shape {
         this.axisB = axisB;
     }
 
-    public double getAxisA() {
-        return axisA;
-    }
-
-    public double getAxisB() {
-        return axisB;
+    public Round() {
     }
 
     public double getSquare() {

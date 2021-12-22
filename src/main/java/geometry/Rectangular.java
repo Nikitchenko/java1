@@ -9,8 +9,7 @@ public abstract class Rectangular implements Shape {
         this.sideB = sideB;
     }
 
-    public double getSideA() {
-        return sideA;
+    public Rectangular() {
     }
 
     public double getSquare() {

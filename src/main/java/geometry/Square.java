@@ -1,15 +1,15 @@
 package geometry;
 
 public class Square extends Rectangular {
+    private final double sideA;
 
     public Square(double sideA) {
-        // add default sideB = 0, because we really do not need sideB for Square
-        super(sideA, 0);
+        this.sideA = sideA;
     }
 
     @Override
     public double getSquare() {
-        return Math.pow(this.getSideA(), 2);
+        return Math.pow(sideA, 2);
     }
 
 }
