@@ -1,4 +1,4 @@
-package task.four;
+package algorithms;
 
 import java.util.HashMap;
 

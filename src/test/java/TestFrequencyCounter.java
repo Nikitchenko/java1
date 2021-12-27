@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Test;
-import task.four.FrequencyCounter;
+import algorithms.FrequencyCounter;
 
 import java.util.HashMap;
 
