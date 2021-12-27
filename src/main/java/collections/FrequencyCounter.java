@@ -1,6 +1,6 @@
-package algorithms;
+package collections;
 
-import java.util.HashMap;
+import java.util.TreeMap;
 
 public class FrequencyCounter {
 
@@ -10,9 +10,9 @@ public class FrequencyCounter {
         System.out.println(countCharFrequency(text));
     }
 
-    public static HashMap countCharFrequency(String text) {
+    public static TreeMap countCharFrequency(String text) {
 
-        HashMap<String, Integer> frequencyDictionary = new HashMap<String, Integer>();
+        TreeMap<String, Integer> frequencyDictionary = new TreeMap<String, Integer>();
 
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
