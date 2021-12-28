@@ -10,22 +10,22 @@ public class CollectionWithoutDuplicates {
         String[] myStrings = {"string1", "string2", "string3", "string1", "string5"};
         Integer[] myNumbers = {1, 2, 3, 1, 5};
 
-        CollectionWithoutDuplicates exemplar = new CollectionWithoutDuplicates();
+        //CollectionWithoutDuplicates exemplar = new CollectionWithoutDuplicates();
 
         System.out.println("\nArray of Strings objects:");
         System.out.println(Arrays.toString(myStrings));
         System.out.println("\nSet of Strings (without duplicates):");
-        System.out.println(exemplar.removeDuplicates(myStrings));
+        System.out.println(removeDuplicates(myStrings));
 
         System.out.println("\nArray of Integers objects: ");
         System.out.println(Arrays.toString(myNumbers));
         System.out.println("\nSet of Integer (without duplicates):");
-        System.out.println(exemplar.removeDuplicates(myNumbers));
+        System.out.println(removeDuplicates(myNumbers));
 
     }
 
-    public <T> Set<T> removeDuplicates(T[] asd) {
-        Set<T> clearedSet = Arrays.stream(asd).collect(Collectors.toSet());
+    public static <V> Set<V> removeDuplicates(V[] aCollection) {
+        Set<V> clearedSet = Arrays.stream(aCollection).collect(Collectors.toSet());
         return clearedSet;
     }
 
