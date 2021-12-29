@@ -39,7 +39,6 @@ public class OrdersHandler {
         for (String s : ordersArray) {
             ordersHashSet.add(s);
         }
-
         return ordersHashSet;
     }
 
@@ -49,9 +48,7 @@ public class OrdersHandler {
         for (String s : ordersArray) {
             ordersTreeSet.add(s);
         }
-
         return ordersTreeSet;
     }
-
 
 }

@@ -17,6 +17,6 @@ public class TestFrequencyCounter {
             put("r", 2);
         }};
 
-        assertEquals(testFrequencyDictionary, FrequencyCounter.countCharFrequency(testText), "chars counted incorrectly");
+        assertEquals(testFrequencyDictionary, FrequencyCounter.countCharFrequency(testText), "Characters counted incorrectly.");
     }
 }

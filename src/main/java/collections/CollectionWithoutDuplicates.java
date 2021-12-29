@@ -10,8 +10,6 @@ public class CollectionWithoutDuplicates {
         String[] myStrings = {"string1", "string2", "string3", "string1", "string5"};
         Integer[] myNumbers = {1, 2, 3, 1, 5};
 
-        //CollectionWithoutDuplicates exemplar = new CollectionWithoutDuplicates();
-
         System.out.println("\nArray of Strings objects:");
         System.out.println(Arrays.toString(myStrings));
         System.out.println("\nSet of Strings (without duplicates):");

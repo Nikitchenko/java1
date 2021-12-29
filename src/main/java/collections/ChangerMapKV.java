@@ -13,14 +13,14 @@ public class ChangerMapKV {
             put("r", 2);
         }};
 
-        System.out.println(myMap);
-        System.out.println(reverseMap(myMap));
-        System.out.println(swapKeysToValues(myMap));
+        System.out.println("My original Map:\n" + myMap);
+        System.out.println("Reversed Map:\n" + reverseMap(myMap));
+        System.out.println("Swapped Map:\n" + swapKeysToValues(myMap));
 
     }
 
     /**
-     * the Method ignores "extra" (new) Keys
+     * the Method ignores "extra" (new) Values
      *
      * @param aMap
      * @param <K>
@@ -28,10 +28,10 @@ public class ChangerMapKV {
      * @return reversed Map,
      */
     public static <K, V> HashMap<V, K> reverseMap(Map<K, V> aMap) {
-        HashMap<V, K> swappedMap = new HashMap<V, K>();
+        HashMap<V, K> reversedMap = new HashMap<V, K>();
         for (Map.Entry<K, V> entry : aMap.entrySet())
-            swappedMap.put(entry.getValue(), entry.getKey());
-        return swappedMap;
+            reversedMap.put(entry.getValue(), entry.getKey());
+        return reversedMap;
     }
 
     /**

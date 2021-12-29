@@ -7,7 +7,8 @@ public class FrequencyCounter {
     public static void main(String[] args) {
 
         String text = "abraCadabra";
-        System.out.println(countCharFrequency(text));
+        System.out.println("Text:\n" + text);
+        System.out.println("\nFrequency of characters:\n" + countCharFrequency(text));
     }
 
     public static TreeMap countCharFrequency(String text) {
@@ -27,4 +28,5 @@ public class FrequencyCounter {
         }
         return frequencyDictionary;
     }
+
 }

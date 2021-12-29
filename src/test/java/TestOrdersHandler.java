@@ -4,7 +4,8 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.HashSet;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestOrdersHandler {
     String[] myTestOrders = {"orderNumber: 001", "orderNumber: 002", "orderNumber: 003", "orderNumber: 001", "orderNumber: 005"};
