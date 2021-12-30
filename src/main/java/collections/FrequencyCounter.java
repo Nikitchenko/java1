@@ -1,5 +1,6 @@
 package collections;
 
+import java.util.Map;
 import java.util.TreeMap;
 
 public class FrequencyCounter {
@@ -11,9 +12,9 @@ public class FrequencyCounter {
         System.out.println("\nFrequency of characters:\n" + countCharFrequency(text));
     }
 
-    public static TreeMap countCharFrequency(String text) {
+    public static Map countCharFrequency(String text) {
 
-        TreeMap<String, Integer> frequencyDictionary = new TreeMap<String, Integer>();
+        Map<String, Integer> frequencyDictionary = new TreeMap<String, Integer>();
 
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
