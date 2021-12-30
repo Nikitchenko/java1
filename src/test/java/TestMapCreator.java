@@ -7,6 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,7 +19,7 @@ public class TestMapCreator {
 
     List<String> myTestStrings = Arrays.asList("foo", "bar", "delta");
     List<Integer> myTestNumbers = Arrays.asList(1, 2, 3, 4);
-    TreeMap<String, Integer> testMapKV_1 = new TreeMap<String, Integer>() {{
+    Map<String, Integer> testMapKV_1 = new TreeMap<String, Integer>() {{
         put("foo", 1);
         put("bar", 2);
         put("delta", 3);
@@ -32,7 +33,7 @@ public class TestMapCreator {
 
     @Test
     public void testCreateMapOption1Case2() {
-        TreeMap<Integer, String> testMapKV1_2 = new TreeMap<Integer, String>() {{
+        Map<Integer, String> testMapKV1_2 = new TreeMap<Integer, String>() {{
             put(1, "foo");
             put(2, "bar");
             put(3, "delta");
@@ -50,7 +51,7 @@ public class TestMapCreator {
 
     @Test
     public void testCreateMapOption2Case2() {
-        TreeMap<Integer, String> testMapKV2_2 = new TreeMap<Integer, String>() {{
+        Map<Integer, String> testMapKV2_2 = new TreeMap<Integer, String>() {{
             put(1, "foo");
             put(2, "bar");
             put(3, "delta");
