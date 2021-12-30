@@ -23,7 +23,7 @@ public class OrdersHandler {
         for (Object s : convertArrayToHashSet(myOrders)) {
             System.out.println(s);
         }
-        
+
         System.out.println("\n\"TreeSet\" orders");
         for (Object s : convertArrayToTreeSet(myOrders)) {
             System.out.println(s);

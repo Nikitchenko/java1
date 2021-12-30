@@ -43,8 +43,8 @@ public class ChangerMapKV {
      * @return Map with swapped Keys and Values
      */
 
-    public static <K, V> HashMap<V, Set<K>> swapKeysToValues(Map<K, V> aMap) {
-        HashMap<V, Set<K>> swappedMap = new HashMap<>();
+    public static <K, V> HashMap<V, Collection<K>> swapKeysToValues(Map<K, V> aMap) {
+        HashMap<V, Collection<K>> swappedMap = new HashMap<>();
         for (Map.Entry<K, V> entry : aMap.entrySet()) {
 
             if (!swappedMap.containsKey(entry.getValue())) {
