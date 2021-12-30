@@ -1,7 +1,7 @@
 package collections;
 
 import java.util.HashSet;
-import java.util.Iterator;
+import java.util.Set;
 import java.util.TreeSet;
 
 public class OrdersHandler {
@@ -20,20 +20,18 @@ public class OrdersHandler {
         }
 
         System.out.println("\n\"HashSet\" orders");
-        Iterator<String> ith = convertArrayToHashSet(myOrders).iterator();
-        while (ith.hasNext()) {
-            System.out.println(ith.next());
+        for (Object s : convertArrayToHashSet(myOrders)) {
+            System.out.println(s);
         }
-
+        
         System.out.println("\n\"TreeSet\" orders");
-        Iterator<String> itt = convertArrayToTreeSet(myOrders).iterator();
-        while (itt.hasNext()) {
-            System.out.println(itt.next());
+        for (Object s : convertArrayToTreeSet(myOrders)) {
+            System.out.println(s);
         }
 
     }
 
-    public static HashSet convertArrayToHashSet(String[] ordersArray) {
+    public static Set convertArrayToHashSet(String[] ordersArray) {
         HashSet<String> ordersHashSet = new HashSet<String>();
 
         for (String s : ordersArray) {
@@ -42,7 +40,7 @@ public class OrdersHandler {
         return ordersHashSet;
     }
 
-    public static TreeSet convertArrayToTreeSet(String[] ordersArray) {
+    public static Set convertArrayToTreeSet(String[] ordersArray) {
         TreeSet<String> ordersTreeSet = new TreeSet<String>();
 
         for (String s : ordersArray) {
