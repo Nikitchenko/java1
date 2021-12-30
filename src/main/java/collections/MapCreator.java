@@ -16,13 +16,13 @@ public class MapCreator {
         System.out.println(myNumbers);
 
         System.out.println("\nOption 1:");
-        System.out.println(createMapOp1(myNumbers, myStrings));
-        System.out.println(createMapOp1(myStrings, myNumbers));
+        System.out.println(createMapOption1(myNumbers, myStrings));
+        System.out.println(createMapOption1(myStrings, myNumbers));
 
         System.out.println("\nOption 2:");
-        System.out.println(createMapOp2(myNumbers, myStrings));
+        System.out.println(createMapOption2(myNumbers, myStrings));
         System.out.println();
-        System.out.println(createMapOp2(myStrings, myNumbers));
+        System.out.println(createMapOption2(myStrings, myNumbers));
     }
 
     /**
@@ -34,7 +34,7 @@ public class MapCreator {
      * @param <V>
      * @return the Map
      */
-    public static <K, V> TreeMap<K, V> createMapOp1(List<K> keys, List<V> values) {
+    public static <K, V> TreeMap<K, V> createMapOption1(List<K> keys, List<V> values) {
 
         TreeMap<K, V> theMap = new TreeMap<K, V>();
         for (int i = 0; i < keys.size(); i++) {
@@ -57,7 +57,7 @@ public class MapCreator {
      * @param <V>
      * @return the Map
      */
-    public static <K, V> TreeMap<K, V> createMapOp2(List<K> keys, List<V> values) {
+    public static <K, V> TreeMap<K, V> createMapOption2(List<K> keys, List<V> values) {
 
         TreeMap<K, V> theMap = new TreeMap<K, V>();
         for (int i = 0; i < keys.size(); i++) {

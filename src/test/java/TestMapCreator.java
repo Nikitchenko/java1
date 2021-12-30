@@ -25,13 +25,13 @@ public class TestMapCreator {
     }};
 
     @Test
-    public void testCreateMapOp1_1() {
+    public void testCreateMapOption1Case1() {
         //Option 1, K < V
-        assertEquals(testMapKV_1, MapCreator.createMapOp1(myTestStrings, myTestNumbers), "Maps are not equal.");
+        assertEquals(testMapKV_1, MapCreator.createMapOption1(myTestStrings, myTestNumbers), "Maps are not equal.");
     }
 
     @Test
-    public void testCreateMapOp1_2() {
+    public void testCreateMapOption1Case2() {
         TreeMap<Integer, String> testMapKV1_2 = new TreeMap<Integer, String>() {{
             put(1, "foo");
             put(2, "bar");
@@ -39,24 +39,24 @@ public class TestMapCreator {
             put(4, null);
         }};
         //Option 1, K > V
-        assertEquals(testMapKV1_2, MapCreator.createMapOp1(myTestNumbers, myTestStrings), "Maps are not equal.");
+        assertEquals(testMapKV1_2, MapCreator.createMapOption1(myTestNumbers, myTestStrings), "Maps are not equal.");
     }
 
     @Test
-    public void testCreateMapOp2_1() {
+    public void testCreateMapOption2Case1() {
         //Option 2, K < V
-        assertEquals(testMapKV_1, MapCreator.createMapOp2(myTestStrings, myTestNumbers), "Maps are not equal.");
+        assertEquals(testMapKV_1, MapCreator.createMapOption2(myTestStrings, myTestNumbers), "Maps are not equal.");
     }
 
     @Test
-    public void testCreateMapOp2_2() {
+    public void testCreateMapOption2Case2() {
         TreeMap<Integer, String> testMapKV2_2 = new TreeMap<Integer, String>() {{
             put(1, "foo");
             put(2, "bar");
             put(3, "delta");
         }};
         //Option 2, K > V
-        assertEquals(testMapKV2_2, MapCreator.createMapOp2(myTestNumbers, myTestStrings), "Maps are not equal.");
+        assertEquals(testMapKV2_2, MapCreator.createMapOption2(myTestNumbers, myTestStrings), "Maps are not equal.");
     }
 
     @BeforeEach
@@ -65,17 +65,17 @@ public class TestMapCreator {
     }
 
     @Test
-    void testMessageInConsoleOp2_1() {
+    void testMessageInConsoleOption2Case1() {
         //Option 2, K < V
-        MapCreator.createMapOp2(myTestStrings, myTestNumbers);
+        MapCreator.createMapOption2(myTestStrings, myTestNumbers);
         assertEquals("Key is not enough for map.\nThere are 1 extra values.", outputStreamCaptor.toString()
                 .trim(), "Message is incorrect or not displayed.");
     }
 
     @Test
-    void testMessageInConsoleOp2_2() {
+    void testMessageInConsoleOption2Case2() {
         //Option 2, K > V
-        MapCreator.createMapOp2(myTestNumbers, myTestStrings);
+        MapCreator.createMapOption2(myTestNumbers, myTestStrings);
         assertEquals("Value is not enough for map.", outputStreamCaptor.toString()
                 .trim(), "Message is incorrect or not displayed.");
     }
