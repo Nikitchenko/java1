@@ -27,8 +27,8 @@ public class ChangerMapKV {
      * @param <V>
      * @return reversed Map,
      */
-    public static <K, V> HashMap<V, K> reverseMap(Map<K, V> aMap) {
-        HashMap<V, K> reversedMap = new HashMap<V, K>();
+    public static <K, V> Map<V, K> reverseMap(Map<K, V> aMap) {
+        Map<V, K> reversedMap = new HashMap<V, K>();
         for (Map.Entry<K, V> entry : aMap.entrySet())
             reversedMap.put(entry.getValue(), entry.getKey());
         return reversedMap;
@@ -43,8 +43,8 @@ public class ChangerMapKV {
      * @return Map with swapped Keys and Values
      */
 
-    public static <K, V> HashMap<V, Collection<K>> swapKeysToValues(Map<K, V> aMap) {
-        HashMap<V, Collection<K>> swappedMap = new HashMap<>();
+    public static <K, V> Map<V, Collection<K>> swapKeysToValues(Map<K, V> aMap) {
+        Map<V, Collection<K>> swappedMap = new HashMap<>();
         for (Map.Entry<K, V> entry : aMap.entrySet()) {
 
             if (!swappedMap.containsKey(entry.getValue())) {
