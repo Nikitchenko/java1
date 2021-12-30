@@ -1,7 +1,7 @@
 package collections;
 
 import java.util.Arrays;
-import java.util.Set;
+import java.util.Collection;
 import java.util.stream.Collectors;
 
 public class CollectionWithoutDuplicates {
@@ -22,9 +22,8 @@ public class CollectionWithoutDuplicates {
 
     }
 
-    public static <V> Set<V> removeDuplicates(V[] aCollection) {
-        Set<V> clearedSet = Arrays.stream(aCollection).collect(Collectors.toSet());
-        return clearedSet;
+    public static <V> Collection<V> removeDuplicates(V[] aCollection) {
+        return Arrays.stream(aCollection).collect(Collectors.toSet());
     }
 
 }
