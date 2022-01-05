@@ -2,6 +2,7 @@ package collections;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
 public class MapCreator {
@@ -34,9 +35,9 @@ public class MapCreator {
      * @param <V>
      * @return the Map
      */
-    public static <K, V> TreeMap<K, V> createMapOption1(List<K> keys, List<V> values) {
+    public static <K, V> Map<K, V> createMapOption1(List<K> keys, List<V> values) {
 
-        TreeMap<K, V> theMap = new TreeMap<K, V>();
+        Map<K, V> theMap = new TreeMap<>();
         for (int i = 0; i < keys.size(); i++) {
 
             if (values.size() <= i) {
@@ -57,9 +58,9 @@ public class MapCreator {
      * @param <V>
      * @return the Map
      */
-    public static <K, V> TreeMap<K, V> createMapOption2(List<K> keys, List<V> values) {
+    public static <K, V> Map<K, V> createMapOption2(List<K> keys, List<V> values) {
 
-        TreeMap<K, V> theMap = new TreeMap<K, V>();
+        Map<K, V> theMap = new TreeMap<>();
         for (int i = 0; i < keys.size(); i++) {
 
             // Use try-catch to intercept error in the case K > V
