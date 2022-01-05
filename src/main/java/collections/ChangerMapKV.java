@@ -5,13 +5,12 @@ import java.util.*;
 public class ChangerMapKV {
     public static void main(String[] args) {
 
-        HashMap<String, Integer> myMap = new HashMap<String, Integer>() {{
-            put("C", 1);
-            put("a", 5);
-            put("b", 2);
-            put("d", 1);
-            put("r", 2);
-        }};
+        Map<String, Integer> myMap = new HashMap<>();
+        myMap.put("C", 1);
+        myMap.put("a", 5);
+        myMap.put("b", 2);
+        myMap.put("d", 1);
+        myMap.put("r", 2);
 
         System.out.println("My original Map:\n" + myMap);
         System.out.println("Reversed Map:\n" + reverseMap(myMap));
@@ -28,7 +27,7 @@ public class ChangerMapKV {
      * @return reversed Map,
      */
     public static <K, V> Map<V, K> reverseMap(Map<K, V> aMap) {
-        Map<V, K> reversedMap = new HashMap<V, K>();
+        Map<V, K> reversedMap = new HashMap<>();
         for (Map.Entry<K, V> entry : aMap.entrySet())
             reversedMap.put(entry.getValue(), entry.getKey());
         return reversedMap;
