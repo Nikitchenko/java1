@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestCollectionWithoutDuplicates {
 
@@ -21,8 +21,8 @@ public class TestCollectionWithoutDuplicates {
         Integer[] myTestNumbers = {1, 2, 3, 5};
         HashSet<Integer> mySetNumbers = new HashSet<>(Arrays.asList(myTestNumbers));
 
-        assertTrue(mySetStrings.equals(CollectionWithoutDuplicates.removeDuplicates(myTestStringsCollection)), "Collections are not equal.");
-        assertTrue(mySetNumbers.equals(CollectionWithoutDuplicates.removeDuplicates(myTestNumbersCollection)), "Collections are not equal.");
+        assertEquals(mySetStrings, CollectionWithoutDuplicates.removeDuplicates(myTestStringsCollection), "Collections are not equal.");
+        assertEquals(mySetNumbers, CollectionWithoutDuplicates.removeDuplicates(myTestNumbersCollection), "Collections are not equal.");
     }
 
 }
