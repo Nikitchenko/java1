@@ -31,8 +31,8 @@ public class OrdersHandler {
 
     }
 
-    public static Set convertArrayToHashSet(String[] ordersArray) {
-        HashSet<String> ordersHashSet = new HashSet<String>();
+    public static Set<String> convertArrayToHashSet(String[] ordersArray) {
+        Set<String> ordersHashSet = new HashSet<>();
 
         for (String s : ordersArray) {
             ordersHashSet.add(s);
@@ -40,8 +40,8 @@ public class OrdersHandler {
         return ordersHashSet;
     }
 
-    public static Set convertArrayToTreeSet(String[] ordersArray) {
-        TreeSet<String> ordersTreeSet = new TreeSet<String>();
+    public static Set<String> convertArrayToTreeSet(String[] ordersArray) {
+        Set<String> ordersTreeSet = new TreeSet<>();
 
         for (String s : ordersArray) {
             ordersTreeSet.add(s);

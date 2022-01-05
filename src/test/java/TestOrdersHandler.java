@@ -3,9 +3,10 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestOrdersHandler {
     String[] myTestOrders = {"orderNumber: 001", "orderNumber: 002", "orderNumber: 003", "orderNumber: 001", "orderNumber: 005"};
@@ -13,9 +14,9 @@ public class TestOrdersHandler {
     @Test
     public void testConvertArrayToHashSet() {
         String[] myTestOrders1 = {"orderNumber: 003", "orderNumber: 001", "orderNumber: 002", "orderNumber: 005"};
-        HashSet<String> mySet = new HashSet<>(Arrays.asList(myTestOrders1));
+        Set<String> mySet = new HashSet<>(Arrays.asList(myTestOrders1));
 
-        assertTrue(mySet.equals(OrdersHandler.convertArrayToHashSet(myTestOrders)), "Sets are not equal.");
+        assertEquals(mySet, OrdersHandler.convertArrayToHashSet(myTestOrders), "Sets are not equal.");
     }
 
     @Test
