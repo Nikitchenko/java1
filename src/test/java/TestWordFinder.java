@@ -8,7 +8,7 @@ import java.util.TreeSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class TestWordFinder {
+public class TestWordFinder {
 
     String aTestText = "V's background and identity are never revealed." +
             " He is at one point an inmate at \"Larkhill Resettlement Camp\"—one of many concentration camps where black people," +
@@ -26,7 +26,7 @@ class TestWordFinder {
     Collection<String> testCollectionOfWords = Arrays.asList(aTestText.split("\\W+"));
 
     @Test
-    void testFindWords() {
+    public void testFindWords() {
 
         Collection<String> wordsStartsO = Arrays.asList("one", "one", "of", "of", "of", "of", "of", "of", "Olympic", "of", "on");
 
@@ -34,7 +34,7 @@ class TestWordFinder {
     }
 
     @Test
-    void testFindWordsWithoutDuplicates() {
+    public void testFindWordsWithoutDuplicates() {
 
         Set<String> wordsStartsOwithoutDuplicates = new TreeSet<>();
         wordsStartsOwithoutDuplicates.add("Olympic");
