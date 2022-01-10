@@ -24,7 +24,7 @@ public class CollectionWithoutDuplicates {
 
     }
 
-    public static <V> Collection<V> removeDuplicates(Collection aCollection) {
+    public static <T> Collection<T> removeDuplicates(Collection<T> aCollection) {
         return new HashSet<>(aCollection);
     }
 

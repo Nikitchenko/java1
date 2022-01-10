@@ -1,5 +1,6 @@
 package collections;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
@@ -20,33 +21,23 @@ public class OrdersHandler {
         }
 
         System.out.println("\n\"HashSet\" orders");
-        for (Object s : convertArrayToHashSet(myOrders)) {
+        for (String s : convertArrayToHashSet(myOrders)) {
             System.out.println(s);
         }
 
         System.out.println("\n\"TreeSet\" orders");
-        for (Object s : convertArrayToTreeSet(myOrders)) {
+        for (String s : convertArrayToTreeSet(myOrders)) {
             System.out.println(s);
         }
 
     }
 
     public static Set<String> convertArrayToHashSet(String[] ordersArray) {
-        Set<String> ordersHashSet = new HashSet<>();
-
-        for (String s : ordersArray) {
-            ordersHashSet.add(s);
-        }
-        return ordersHashSet;
+        return new HashSet<>(Arrays.asList(ordersArray));
     }
 
     public static Set<String> convertArrayToTreeSet(String[] ordersArray) {
-        Set<String> ordersTreeSet = new TreeSet<>();
-
-        for (String s : ordersArray) {
-            ordersTreeSet.add(s);
-        }
-        return ordersTreeSet;
+        return new TreeSet<>(Arrays.asList(ordersArray));
     }
 
 }
