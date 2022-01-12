@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 public class Person {
     static final int ADULT_FROM_AGE = 18;
-    private final int age;
+    private int age;
     private String firstName;
     private String lastName;
 
