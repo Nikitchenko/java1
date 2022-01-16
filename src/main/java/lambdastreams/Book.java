@@ -3,10 +3,7 @@ package lambdastreams;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.math.BigDecimal;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -48,6 +45,16 @@ public class Book {
         for (Book book : getListOfBooksSortedDescByName(listOfBooks)) {
             System.out.println(book);
         }
+
+        // TODO task 6.2 sub-task 2
+        Book book1 = new Book("myBook", BigDecimal.valueOf(5).setScale(2, BigDecimal.ROUND_HALF_UP));
+        Book book2 = new Book("myBook", BigDecimal.valueOf(5).setScale(2, BigDecimal.ROUND_HALF_UP));
+        Map<Book, String> mapWithBook = new HashMap<>();
+        mapWithBook.put(book1, "someLibraryName");
+        System.out.println("\nLibrary of book1:\n" + mapWithBook.get(book1));
+        System.out.println("\nLibrary of book2:\n" + mapWithBook.get(book2));
+        // seems it just null, because objects book1 and book2 are different
+        System.out.println("\nAre book1 and book2 are equal?\n" + book1.equals(book2));
 
     }
 
