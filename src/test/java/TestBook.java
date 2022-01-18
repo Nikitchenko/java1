@@ -2,10 +2,9 @@ import lambdastreams.Book;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
+import static lambdastreams.Book.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -22,15 +21,15 @@ public class TestBook {
     @Test
     public void testGenerateRandomName() {
 
-        assertTrue(3 <= Book.generateRandomName().length() &&
-                Book.generateRandomName().length() <= 10, "Random name has incorrect name length.");
+        assertTrue(MIN_NAME_LENGTH <= Book.generateRandomName().length() &&
+                Book.generateRandomName().length() <= MAX_NAME_LENGTH, "Random name has incorrect name length.");
     }
 
     @Test
     public void testGenerateRandomPrice() {
 
-        assertTrue(1.00 <= Book.generateRandomPrice().doubleValue() &&
-                Book.generateRandomPrice().doubleValue() <= 99.00, "Random price is more or less than required.");
+        assertTrue(MIN_PRICE <= Book.generateRandomPrice().doubleValue() &&
+                Book.generateRandomPrice().doubleValue() < MAX_PRICE, "Random price is more or less than required.");
     }
 
     @Test
@@ -89,7 +88,11 @@ public class TestBook {
     @Test
     public void testGetNumberOfBooksSpecificLength() {
 
-        assertEquals(3, Book.getNumberOfBooksSpecificLength(testBooksList, 10),
+        int testNameLength = 10;
+        int numberOfBooksWithSpecificNameLength = 3;
+        // we use testBooksList for testing, there 3 books with name length 10 letters
+
+        assertEquals(numberOfBooksWithSpecificNameLength, Book.getNumberOfBooksSpecificLength(testBooksList, testNameLength),
                 "Incorrect number of books with name length 10 characters.");
     }
 
@@ -101,7 +104,7 @@ public class TestBook {
                 new Book("Terminator", BigDecimal.valueOf(10.11).setScale(2, BigDecimal.ROUND_HALF_UP))
         ));
 
-        assertEquals(testBooksListWithPriceLessThanLimit.toString(), Book.getBooksWithPriceLessThanLimit(testBooksList, 30.00).toString(),
+        assertEquals(testBooksListWithPriceLessThanLimit, Book.getBooksWithPriceLessThanLimit(testBooksList, 30.00),
                 "Incorrect list of books with price less than limit.");
     }
 
@@ -116,8 +119,13 @@ public class TestBook {
                 new Book("Eclipse part A", BigDecimal.valueOf(98.78).setScale(2, BigDecimal.ROUND_HALF_UP))
         ));
 
-        assertEquals(testBooksListSorted.toString(), Book.getListOfBooksSortedDescByName(testBooksList).toString(),
-                "List sorted incorrectly.");
+        assertEquals(testBooksListSorted, Book.getListOfBooksSortedDescByName(testBooksList),"List sorted incorrectly.");
+    }
+
+    @Test
+    public void testGetLibraryName() {
+
+        assertEquals(LIBRARY_NAME, getLibraryName(), "Incorrect library name.");
     }
 
 }

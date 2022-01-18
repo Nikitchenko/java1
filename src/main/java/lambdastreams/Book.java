@@ -10,9 +10,10 @@ import java.util.stream.IntStream;
 
 public class Book {
     public static final double MIN_PRICE = 1d;
-    public static final double MAX_PRICE = 98d;
+    public static final double MAX_PRICE = 99d;
     public static final int MIN_NAME_LENGTH = 3;
     public static final int MAX_NAME_LENGTH = 10;
+    public static final String LIBRARY_NAME = "Custom Library";
     private String name;
     private BigDecimal price;
 
@@ -46,16 +47,23 @@ public class Book {
             System.out.println(book);
         }
 
-        // TODO task 6.2 sub-task 2
+
+        System.out.println("\nLibrary name is:\n" + getLibraryName());
+
+    }
+
+    /**
+     * Create to identical books
+     * One added to a MAP with library
+     *
+     * @return Library using book that was not added to the MAP
+     */
+    public static String getLibraryName() {
         Book book1 = new Book("myBook", BigDecimal.valueOf(5).setScale(2, BigDecimal.ROUND_HALF_UP));
         Book book2 = new Book("myBook", BigDecimal.valueOf(5).setScale(2, BigDecimal.ROUND_HALF_UP));
         Map<Book, String> mapWithBook = new HashMap<>();
-        mapWithBook.put(book1, "someLibraryName");
-        System.out.println("\nLibrary of book1:\n" + mapWithBook.get(book1));
-        System.out.println("\nLibrary of book2:\n" + mapWithBook.get(book2));
-        // seems it just null, because objects book1 and book2 are different
-        System.out.println("\nAre book1 and book2 are equal?\n" + book1.equals(book2));
-
+        mapWithBook.put(book1, LIBRARY_NAME);
+        return mapWithBook.get(book2);
     }
 
     public static String generateRandomName() {
@@ -65,7 +73,7 @@ public class Book {
     }
 
     public static BigDecimal generateRandomPrice() {
-        double randomBookPrice = (Math.random() * ((MAX_PRICE - MIN_PRICE) + 1)) + MIN_PRICE;
+        double randomBookPrice = (Math.random() * ((MAX_PRICE - 1 - MIN_PRICE) + 1)) + MIN_PRICE;
         return BigDecimal.valueOf(randomBookPrice).setScale(2, BigDecimal.ROUND_HALF_UP);
     }
 
@@ -100,15 +108,6 @@ public class Book {
                 .filter(isContainAString)
                 .collect(Collectors.toList());
     }
-
-//    public static String getBookWithHighestPrice(List<Book> allBooks) {
-//
-//        return allBooks.stream()
-//                .filter(Objects::nonNull)
-//                .max(Comparator.comparing(Book::getPrice))
-//                .get()
-//                .getName();
-//    }
 
     /**
      * There can be few books with the same highest price, so we return LIST of their names
@@ -164,11 +163,21 @@ public class Book {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return name.equals(book.name) && price.equals(book.price);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, price);
+    }
+
+    @Override
     public String toString() {
-        return "Book{" +
-                "name='" + name + '\'' +
-                ", price=" + price +
-                '}';
+        return "Book{name='" + name + "', price=" + price + '}';
     }
 
     public String getName() {
