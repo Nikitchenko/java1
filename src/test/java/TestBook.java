@@ -2,7 +2,9 @@ import lambdastreams.Book;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import static lambdastreams.Book.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -78,12 +80,26 @@ public class TestBook {
     }
 
     @Test
-    public void testGetBookNameWithHighestPrice() {
+    public void testGetBooksNameWithHighestPrice() {
 
         List testBooksListWithHighestPrice = new ArrayList(Arrays.asList("Terminator", "Eclipse part A"));
 
-        assertEquals(testBooksListWithHighestPrice, Book.getBookWithHighestPrice(testBooksList), "Incorrect names of books with highest price.");
+        assertEquals(testBooksListWithHighestPrice, Book.getBooksWithHighestPrice(testBooksList), "Incorrect names of books with highest price.");
     }
+
+    @Test
+    public void testGetTheBookNameWithHighestPrice() {
+
+        String testTheBookWithHighestPrice = "Terminator";
+        List testBooksListWithNoBooks = new ArrayList();
+
+        assertEquals(testTheBookWithHighestPrice, Book.getTheBookWithHighestPrice(testBooksList),
+                "Incorrect name of book with highest price.");
+        assertEquals(NO_BOOK_WITH_HIGHEST_PRICE, Book.getTheBookWithHighestPrice(testBooksListWithNoBooks),
+                "Incorrect message in case of lack of the book with highest price.");
+
+    }
+
 
     @Test
     public void testGetNumberOfBooksSpecificLength() {
@@ -119,7 +135,7 @@ public class TestBook {
                 new Book("Eclipse part A", BigDecimal.valueOf(98.78).setScale(2, BigDecimal.ROUND_HALF_UP))
         ));
 
-        assertEquals(testBooksListSorted, Book.getListOfBooksSortedDescByName(testBooksList),"List sorted incorrectly.");
+        assertEquals(testBooksListSorted, Book.getListOfBooksSortedDescByName(testBooksList), "List sorted incorrectly.");
     }
 
     @Test

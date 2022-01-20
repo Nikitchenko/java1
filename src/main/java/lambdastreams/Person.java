@@ -44,8 +44,8 @@ public class Person {
         Set<String> personsFirstNames;
         personsFirstNames = persons.stream()
                 .filter(Objects::nonNull)
-                .filter(adult -> adult.age >= ADULT_FROM_AGE)
-                .map(person -> person.firstName.toUpperCase().trim())
+                .filter(adult -> adult.getAge() >= ADULT_FROM_AGE)
+                .map(person -> person.getFirstName().toUpperCase().trim())
                 .filter(name -> !name.isEmpty())
                 .collect(Collectors.toSet());
 

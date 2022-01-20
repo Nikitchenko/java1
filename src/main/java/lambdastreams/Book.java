@@ -3,16 +3,20 @@ package lambdastreams;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.math.BigDecimal;
+import java.util.Optional;
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+
+import static oracle.jrockit.jfr.events.Bits.intValue;
 
 public class Book {
     public static final double MIN_PRICE = 1d;
     public static final double MAX_PRICE = 99d;
     public static final int MIN_NAME_LENGTH = 3;
     public static final int MAX_NAME_LENGTH = 10;
+    public static final String NO_BOOK_WITH_HIGHEST_PRICE = "There is no book with highest price.";
     public static final String LIBRARY_NAME = "Custom Library";
     private String name;
     private BigDecimal price;
@@ -35,9 +39,11 @@ public class Book {
         System.out.println("\nList of books that contains 'A' or 'a' (if any):\n" + getBooksNamesWithAString(listOfBooks, "A"));
 
         System.out.println("\nName of the books with highest price:");
-        for (String book : getBookWithHighestPrice(listOfBooks)) {
+        for (String book : getBooksWithHighestPrice(listOfBooks)) {
             System.out.println(book);
         }
+
+        System.out.println("\nName of the book with highest price:\n" + getTheBookWithHighestPrice(listOfBooks));
 
         System.out.println("\nNumber of books where name consists of 5 letters:\n" + getNumberOfBooksSpecificLength(listOfBooks, 5));
         System.out.println("\nBooks with price less than 30.00:\n" + getBooksWithPriceLessThanLimit(listOfBooks, 30.00d));
@@ -115,7 +121,7 @@ public class Book {
      * @param allBooks
      * @return
      */
-    public static List<String> getBookWithHighestPrice(List<Book> allBooks) {
+    public static List<String> getBooksWithHighestPrice(List<Book> allBooks) {
 
         List<BigDecimal> listOfPrices = allBooks.stream()
                 .filter(Objects::nonNull)
@@ -132,16 +138,30 @@ public class Book {
         return getBooksNames(listOfBooksWithHighestPrice);
     }
 
+    public static String getTheBookWithHighestPrice(List<Book> allBooks) {
+
+        Optional<Book> theBook = allBooks.stream()
+                .filter(Objects::nonNull)
+                .max(Comparator.comparing(Book::getPrice));
+
+        if (theBook.isPresent()) {
+            return theBook.get().getName();
+        }
+
+        return NO_BOOK_WITH_HIGHEST_PRICE;
+    }
+
     public static int getNumberOfBooksSpecificLength(List<Book> allBooks, int nameLength) {
 
         Predicate<Book> isSpecificLength = bookName -> bookName.getName().length() == nameLength;
 
-        return allBooks.stream()
+        long numberOfBooksSpecificLength = allBooks.stream()
                 .filter(Objects::nonNull)
                 .filter(isSpecificLength)
                 .map(Book::getName)
-                .collect(Collectors.toList())
-                .size();
+                .count();
+
+        return intValue(numberOfBooksSpecificLength);
     }
 
     public static List<Book> getBooksWithPriceLessThanLimit(List<Book> allBooks, double limit) {
@@ -157,8 +177,7 @@ public class Book {
     public static List<Book> getListOfBooksSortedDescByName(List<Book> allBooks) {
 
         return allBooks.stream()
-                .sorted(Comparator.comparing(Book::getPrice))
-                .sorted(Comparator.comparing(Book::getName).reversed())
+                .sorted(Comparator.comparing(Book::getName).reversed().thenComparing(Comparator.comparing(Book::getPrice)))
                 .collect(Collectors.toList());
     }
 
